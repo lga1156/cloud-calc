@@ -4,14 +4,14 @@ import { PRICING } from "../constants";
 interface CalculatorState {
   cpu: number;
   ram: number;
-  diskType: "ssd" | "hdd";
+  diskType: "ssd" | "nvme";
   diskSize: number;
   os: "ubuntu" | "debian" | "centos" | "arch" | "rocky" | "fedora" | "windows";
   isBackupEnabled: boolean;
 
   setCpu: (count: number) => void;
   setRam: (count: number) => void;
-  setDiskType: (type: "ssd" | "hdd") => void;
+  setDiskType: (type: "ssd" | "nvme") => void;
   setDiskSize: (size: number) => void;
   setOs: (
     os:
@@ -36,8 +36,22 @@ export const useCalculatorStore = create<CalculatorState>((set, get) => ({
   os: "ubuntu",
   isBackupEnabled: false,
 
-  setCpu: (cpu) => set({ cpu }),
-  setRam: (ram) => set({ ram }),
+  setCpu: (cpu) =>
+    set((state) => {
+      const maxRamAllowed = cpu * 16;
+
+      const newRam = state.ram > maxRamAllowed ? maxRamAllowed : state.ram;
+
+      return { cpu, ram: newRam };
+    }),
+  setRam: (ram) =>
+    set((state) => {
+      const minCpuNeeded = Math.ceil(ram / 16);
+
+      const newCpu = state.cpu < minCpuNeeded ? minCpuNeeded : state.cpu;
+
+      return { ram, cpu: newCpu };
+    }),
   setDiskType: (diskType) => set({ diskType }),
   setDiskSize: (diskSize) => set({ diskSize }),
   setOs: (os) => set({ os }),

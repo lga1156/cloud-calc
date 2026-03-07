@@ -1,10 +1,9 @@
 export const PRICING = {
-  cpuPerCore: 150,
-  ramPerGb: 10,
+  cpuPerCore: 120,
+  ramPerGb: 60,
   disk: {
-    hdd: 2,
     ssd: 5,
-    nvme: 10,
+    nvme: 12,
   },
   os: {
     ubuntu: 0,
@@ -13,7 +12,7 @@ export const PRICING = {
     arch: 0,
     rocky: 0,
     fedora: 0,
-    windows: 0,
+    windows: 800,
   },
   backupMultiplier: 1.2,
 };

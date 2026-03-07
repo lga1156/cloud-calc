@@ -3,8 +3,8 @@ import { Receipt } from "./components/Receipt";
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-[#F3F7FA] py-10 px-4">
+      <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-extrabold mb-8 text-slate-900">
           Cloud Configurator
         </h1>

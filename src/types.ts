@@ -1,12 +1,5 @@
-export type OsType =
-  | "ubuntu"
-  | "debian"
-  | "centos"
-  | "arch"
-  | "rocky"
-  | "fedora"
-  | "windows";
-export type DiskType = "ssd" | "hdd";
+export type OsType = "ubuntu" | "debian" | "centos" | "windows";
+export type DiskType = "ssd" | "nvme";
 
 export interface ServerState {
   cpu: number;
