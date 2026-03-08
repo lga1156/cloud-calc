@@ -6,23 +6,14 @@ interface CalculatorState {
   ram: number;
   diskType: "ssd" | "nvme";
   diskSize: number;
-  os: "ubuntu" | "debian" | "centos" | "arch" | "rocky" | "fedora" | "windows";
+  os: "ubuntu" | "debian" | "centos" | "windows";
   isBackupEnabled: boolean;
 
   setCpu: (count: number) => void;
   setRam: (count: number) => void;
   setDiskType: (type: "ssd" | "nvme") => void;
   setDiskSize: (size: number) => void;
-  setOs: (
-    os:
-      | "ubuntu"
-      | "debian"
-      | "centos"
-      | "arch"
-      | "rocky"
-      | "fedora"
-      | "windows",
-  ) => void;
+  setOs: (os: "ubuntu" | "debian" | "centos" | "windows") => void;
   toggleBackup: () => void;
 
   totalPrice: () => number;

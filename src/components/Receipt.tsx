@@ -2,7 +2,9 @@ import { useCalculatorStore } from "../store/useCalculatorStore";
 import { Button } from "@/components/ui/button";
 
 export const Receipt = () => {
-  const totalPrice = useCalculatorStore((state) => state.totalPrice());
+  const totalPrice = useCalculatorStore(() =>
+    useCalculatorStore.getState().totalPrice(),
+  );
   const { cpu, ram, diskSize, isBackupEnabled } = useCalculatorStore();
 
   return (
