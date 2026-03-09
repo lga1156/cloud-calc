@@ -5,7 +5,7 @@ import { Github } from "lucide-react";
 function App() {
   return (
     <div className="min-h-screen bg-[#F3F7FA] py-10 px-4">
-      <header className="flex items-center justify-between mb-8 md:px-20">
+      <header className="flex items-center justify-between mb-8">
         <h1 className="text-3xl font-extrabold text-slate-900">
           Cloud Configurator
         </h1>
